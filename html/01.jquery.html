@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>jQuery 연습</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="text-center p-4">
+		<button class="btn btn-danger">배경색 바꾸기 - 빨강</button>
+		<button class="btn btn-primary">배경색 바꾸기 - 파랑</button>
+		<button class="btn btn-success">배경색 바꾸기 - 녹색</button>
+	</div>
+	<script>
+	// $("body").css("background-color", "#f00");
+	$(".btn-danger").click(function(){
+		$("body").css("background-color", "red");
+	});
+	$(".btn-primary").click(function(){
+		$("body").css("background-color", "blue");
+	});
+	$(".btn-success").click(function(){
+		$("body").css("background-color", "green");
+	});
+	</script>
+</body>
+</html>
