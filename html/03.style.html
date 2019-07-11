@@ -12,14 +12,47 @@
 </head>
 <body class="text-center p-4">
 	<button class="btn btn-primary" id="bt1">배경바꾸기</button>
+	<button class="btn btn-danger" id="bt2">배경바꾸기2</button>
+	<button class="btn btn-success" id="bt3">HTML 추가하기</button>
+	<button class="btn btn-warning" id="bt4">css 변경하기</button>
 
 	<script>
 	// $("#bt1").css("border-radius", "50%");
 	/* 
-	이벤트함수 : 
-	click, dbclick, mouseover, mouseout(mouseleave), mousemove, resize, scroll...
+	이벤트함수 :
+	https://www.w3schools.com/jquery/jquery_events.asp 
+	https://www.w3schools.com/jquery/jquery_ref_events.asp
+	click, dblclick, mouseover, mouseout(mouseleave), mousemove, resize, scroll...
 	*/
-	$("#bt1").click();
+	$("#bt1").click(function(){
+		alert("hi~");	//javascript 함수(바닐라스크립트)
+	});
+
+	var bgChange = function() {
+		$("body").css("background-color", "blue");
+	}
+
+	$("#bt2").click(bgChange);
+
+	$("#bt3").click(function() {
+		$("body").append('<h1 class="text-center text-primary">Hello World</h1>');
+	});
+
+	var css = {
+		"background-color": "yellow",
+		"border": "10px solid red"
+	}
+
+	$("#bt4").click(function(){
+		$("body").css(css);
+	});
+
+	/* $("#bt4").click(function(){
+		$("body").css({
+			"background-color": "yellow",
+			"border": "10px solid red"
+		});
+	}); */
 	</script>
 </body>
 </html>
