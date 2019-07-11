@@ -1,0 +1,45 @@
+<script>
+// ctrl + /  => 한줄 주석
+/* alt + shift + a => 여러줄 주석 */
+/* 
+프로그래밍 : 변수(값이 담기는 공간)와 함수(동작)의 조합
+*/
+
+var a = 5;
+var b = 10;
+var c;	//null
+var car = "hyundai";
+
+// 리턴값이 있는 함수
+function sum() {
+	return a + b;
+}
+
+// 리턴값이 없는 함수(void형 함수)
+function sum2() {
+	c = a + b;
+}
+
+// 인자(parameter)가 있는 함수
+function sum3(x) {
+	return a + x;
+}
+
+console.log(sum4(10, 20));
+// 함수선언문
+function sum4(x, y) {
+	return x + y;
+}
+
+// 변수에 할당한 함수(함수대입문)
+var multi = function(x, y) {
+	return x * y;
+}
+console.log(multi(10, 20));
+
+console.log("Hello World");
+console.log(a);
+console.log(sum3(20));
+console.log(sum4(10, 20));
+console.log(multi(10, 20));
+</script>
