@@ -16,18 +16,41 @@
 <body>
 	<div class="container my-5">
 		<div class="pics">
-			<img src="">
+			<img src="" id="pic">
 		</div>
-		<ul class="d-flex">
-			<li><img src="../img/cherries.jpg"></li>
-			<li><img src="../img/croissant.jpg"></li>
-			<li><img src="../img/popsicle.jpg"></li>
-			<li><img src="../img/salmon.jpg"></li>
-			<li><img src="../img/sandwich.jpg"></li>
-			<li><img src="../img/steak.jpg"></li>
-			<li><img src="../img/wine.jpg"></li>
+		<ul class="d-flex" id="thumb">
+			<li><img src="../img/cherries.jpg" alt="체리"></li>
+			<li><img src="../img/croissant.jpg" alt="빵"></li>
+			<li><img src="../img/popsicle.jpg" alt="아이스크림"></li>
+			<li><img src="../img/salmon.jpg" alt="연어"></li>
+			<li><img src="../img/sandwich.jpg" alt="샌드위치"></li>
+			<li><img src="../img/steak.jpg" alt="스테이크"></li>
+			<li><img src="../img/wine.jpg" alt="와인"></li>
 		</ul>
 	</div>
+
+	<!-- The Modal -->
+	<div class="modal" id="myModal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<!-- Modal Header -->
+				<div class="modal-header">
+					<h4 class="modal-title"></h4>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+				<!-- Modal body -->
+				<div class="modal-body">
+					<img src="" id="m-pic">
+				</div>
+				<!-- Modal footer -->
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
 	<script src="../js/07.gallery.js"></script>
 </body>
 
