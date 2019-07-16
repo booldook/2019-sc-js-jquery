@@ -60,3 +60,10 @@ $("#btSend").click(function(){
 	}
 	$f.submit();
 });
+
+
+$("#emailChoice").change(function(){
+	var $f = $("form[name='joinForm']");
+	var $emailDomain = $f.find("input[name='emailDomain']");
+	$emailDomain.val($(this).val());
+});
