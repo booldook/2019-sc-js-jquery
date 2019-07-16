@@ -23,25 +23,40 @@
 						<tr class="row">
 							<td class="col-3">이름</td>
 							<td class="col-9">
-								<input type="text" name="username" placeholder="사용자이름">
+								<input type="text" name="username" class="form-control" placeholder="사용자이름">
 							</td>
 						</tr>
 						<tr class="row">
 							<td class="col-3">아이디</td>
 							<td class="col-9">
-								<input type="text" name="username" placeholder="사용자이름">
+								<input type="text" name="userid" class="form-control"  placeholder="아이디">
 							</td>
 						</tr>
 						<tr class="row">
 							<td class="col-3">비밀번호</td>
 							<td class="col-9">
-								<input type="text" name="username" placeholder="사용자이름">
+								<input type="password" class="form-control"  name="userpw">
 							</td>
 						</tr>
 						<tr class="row">
 							<td class="col-3">이메일</td>
-							<td class="col-9">
-								<input type="text" name="username" placeholder="사용자이름">
+							<td class="col-9 form-inline">
+								<input type="text" name="email-user" class="form-control"  placeholder="이메일"> @ 
+								<input type="text" name="email-domain" class="form-control">&nbsp;
+								<select name="email-choice" id="email-choice" class="form-control" >
+									<option value="">직접입력</option>
+									<option value="gmail.com">gmail.com</option>
+									<option value="naver.com">naver.com</option>
+									<option value="daum.net">daum.net</option>
+									<option value="me.com">me.com</option>
+									<option value="outlook.com">outlook.com</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2" class="text-center">
+								<button type="submit" class="btn btn-primary">전송</button>
+								<button type="reset" class="btn btn-danger">재작성</button>
 							</td>
 						</tr>
 					</tbody>
