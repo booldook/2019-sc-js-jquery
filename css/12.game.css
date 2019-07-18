@@ -1,0 +1,3 @@
+#stage {position: relative;}
+#stage > div {position: relative; width: 100px; height: 100px;}
+#stage > div > .badge {position: absolute; top: 0; right: 0;}

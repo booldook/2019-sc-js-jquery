@@ -17,13 +17,13 @@
 			<h3>순위결정게임</h3>
 		</div>
 		<div class="border border-primary my-3 p-3 form-inline">
-			<input type="number" id="cnt" class="form-control mr-2" style="width: 80px;">
-			<button class="btn btn-success mr-2">준비</button>
-			<button class="btn btn-primary mr-2">시작</button>
-			<button class="btn btn-danger">초기화</button>
+			<input type="number" id="cnt" class="form-control mr-2" value="4" style="width: 80px;">
+			<button id="btInit" class="btn btn-success mr-2">준비</button>
+			<button id="btStart" class="btn btn-primary mr-2" style="display:none;">시작</button>
+			<button id="btReset" class="btn btn-danger" style="display:none;">초기화</button>
 		</div>
-		<div class="border border-primary my-3 p-3">
-
+		<div id="stage" class="border border-primary my-3 p-3">
+			
 		</div>
 	</div>
 	<script src="../js/12.game.js"></script>
