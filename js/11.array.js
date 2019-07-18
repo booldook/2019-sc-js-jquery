@@ -6,9 +6,8 @@ for(var i=0; i<45; i++) {
 var man = {
 	name: "홍길동"
 }
-man.name
 
-
+// 성적관리프로그램
 var scores = [
 	{
 		name: "홍길동",
@@ -27,15 +26,27 @@ var scores = [
 		kor: 95,
 		math: 95,
 		eng: 100
+	},
+	{
+		name: "홍길영",
+		kor: 85,
+		math: 95,
+		eng: 95
 	}
 ]; 
 
+console.log(scores.length);
 
-for(var i=0; i<3; i++) {
-	html = '<li class="list-group-item"><div class="row"><div class="col-3">'+scores[i].name+'</div><div class="col-3">국어:'+scores[i].kor+'점</div><div class="col-3">영어:'+scores[i].eng+'점</div><div class="col-3">수학:'+scores[i].math+'점</div></div></li>';
-	
+var html = '';
+for(var i=0; i<scores.length; i++) {
+	html =  '<li class="list-group-item">';
+	html += '<div class="row">';
+	html += '<div class="col-3">'+scores[i].name+'</div>';
+	html += '<div class="col-3">국어: '+scores[i].kor+'점</div>';
+	html += '<div class="col-3">영어: '+scores[i].eng+'점</div>';
+	html += '<div class="col-3">수학: '+scores[i].math+'점</div>';
+	html += '</div>';
+	html += '</li>';
 	$(".list-group").append(html);
-
-
 	// $(".list-group").append('<li class="list-group-item">'+scores[i].name+'</li>');
 }
