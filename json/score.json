@@ -1,0 +1,9 @@
+{
+	"scores": [
+		{"name": "홍길동", "kor": 95, "eng": 85, "math": 75},
+		{"name": "홍길순", "kor": 90, "eng": 78, "math": 86},
+		{"name": "홍길만", "kor": 87, "eng": 82, "math": 97},
+		{"name": "홍길이", "kor": 92, "eng": 89, "math": 92},
+		{"name": "홍길삼", "kor": 66, "eng": 72, "math": 78}
+	]
+}
