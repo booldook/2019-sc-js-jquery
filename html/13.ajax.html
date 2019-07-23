@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,12 +12,44 @@
 	<script src="../js/popper.min.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
 </head>
+
 <body>
 	<div class="container">
-		<div class="alert alert-dark my-3 p-3 text-center">
+		<!-- <div class="alert alert-dark my-3 p-3 text-center">
 			<button class="btn btn-primary" id="btGetData">데이터 가져오기</button>
+			<button class="btn btn-danger" id="btRevData">데이터 지우기</button>
+		</div> -->
+		<div class="alert alert-dark my-3 p-3">
+			<h4>성적관리프로그램</h4>
 		</div>
+		<div class="border border-primary my-3 p-3 rounded">
+			<form name="form-score">
+				<div class="form-inline">
+					<input type="text" class="form-control mr-2" id="stdname" placeholder="이름">
+					<input type="text" class="form-control mr-2" id="kor" placeholder="국어점수">
+					<input type="text" class="form-control mr-2" id="eng" placeholder="영어점수">
+					<input type="text" class="form-control mr-2" id="math" placeholder="수학점수">
+					<button id="btSave" class="btn btn-primary">저장</button>
+				</div>
+			</form>
+		</div>
+		<table id="tb-score" 
+		class="table table-hover table-striped table-bordered text-center">
+			<thead>
+				<tr class="bg-dark text-white">
+					<th>번호</th>
+					<th>이름</th>
+					<th>국어</th>
+					<th>영어</th>
+					<th>수학</th>
+				</tr>
+			</thead>
+			<tbody>
+
+			</tbody>
+		</table>
 	</div>
 	<script src="../js/13.ajax.js"></script>
 </body>
+
 </html>
