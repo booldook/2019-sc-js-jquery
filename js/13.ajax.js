@@ -30,7 +30,45 @@ function init() {
 }
 
 $("#btSave").click(function(){
-	
+	var $stdname = $("#stdname");
+	var $kor = $("#kor");
+	var $eng = $("#eng");
+	var $math = $("#math");
+	if($stdname.val() == "") {
+		alert("이름을 입력하세요.");
+		$stdname.focus();
+		return false;
+	}
+	if($kor.val() == "") {
+		alert("국어점수를 입력하세요.");
+		$kor.focus();
+		return false;
+	}
+	if($eng.val() == "") {
+		alert("영어점수를 입력하세요.");
+		$eng.focus();
+		return false;
+	}
+	if($math.val() == "") {
+		alert("수학점수를 입력하세요.");
+		$math.focus();
+		return false;
+	}
+	$.ajax({
+		type: "post",
+		url: "https://webmir.co.kr/score/score_in.php",
+		data: {
+			stdname: $stdname.val(),
+			kor: $kor.val(),
+			eng: $eng.val(),
+			math: $math.val()
+		},
+		dataType: "json",
+		success: function (res) {
+			console.log(res);
+			init();
+		}
+	});
 });
 
 
