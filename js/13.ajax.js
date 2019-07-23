@@ -1,12 +1,14 @@
 /* 
 RESTFul API : CRUD (Create, Read, Update, Delete)
-C: https://webmir.co.kr/score/score_in.php [post]
+C: https://webmir.co.kr/score/score_in.php [post][stdname, kor ...]
 R: https://webmir.co.kr/score/score_li.php [get/post]
 U: https://webmir.co.kr/score/score_up.php [post]
-D: https://webmir.co.kr/score/score_li.php [post]
+D: https://webmir.co.kr/score/score_del.php [post][id: id]
 */
 
 init();
+
+// Read 데이터 불러오기
 function init() {
 	$.ajax({
 		type: "get",
@@ -22,6 +24,11 @@ function init() {
 				html += '<td>' + res.student[i].kor + '</td>';
 				html += '<td>' + res.student[i].eng + '</td>';
 				html += '<td>' + res.student[i].math + '</td>';
+				html += '<td>';
+				html += '<button class="btn btn-sm btn-danger" onclick="dataRev('+res.student[i].id+');">삭제</button> ';
+				html += '<button class="btn btn-sm btn-success" onclick="dataChg(this);">수정</button>';
+				html += '<button class="btn btn-sm btn-info d-none" onclick="dataUpdate('+res.student[i].id+');">저장</button>';
+				html += '</td>';
 				html += '</tr>';
 				$("#tb-score").find("tbody").append(html);
 			}
@@ -29,6 +36,8 @@ function init() {
 	});
 }
 
+
+// Create 데이터 저장하기
 $("#btSave").click(function(){
 	var $stdname = $("#stdname");
 	var $kor = $("#kor");
@@ -65,11 +74,41 @@ $("#btSave").click(function(){
 		},
 		dataType: "json",
 		success: function (res) {
-			console.log(res);
+			/* $stdname.val('');
+			$kor.val('');
+			$eng.val('');
+			$math.val(''); */
+			document.formScore.reset();
 			init();
 		}
 	});
 });
+
+// 데이터 삭제하기
+function dataRev(id) {
+	//var id = $(obj).parent().parent().find("td").eq(0).text();
+	if(confirm("정말로 삭제하시겠습니까?")) {
+		$.ajax({
+			type: "post",
+			url: "https://webmir.co.kr/score/score_del.php",
+			data: { id: id },
+			dataType: "json",
+			success: function (res) {
+				console.log(res);
+				init();
+			}
+		});
+	}
+}
+
+// 데이터 수정하기
+// $(객체).parent() => 객체의 부모 
+// $(객체).next()   => 객체의 형제중 앞에 있는 객체
+// $(객체).prev()   => 객체의 형제중 뒤에 있는 객체
+function dataChg(obj) {
+	$(obj).addClass("d-none");
+	$(obj).next().removeClass("d-none");
+}
 
 
 
