@@ -27,7 +27,7 @@ function init() {
 				html += '<td>';
 				html += '<button class="btn btn-sm btn-danger" onclick="dataRev('+res.student[i].id+');">삭제</button> ';
 				html += '<button class="btn btn-sm btn-success" onclick="dataChg(this);">수정</button>';
-				html += '<button class="btn btn-sm btn-info d-none" onclick="dataUpdate('+res.student[i].id+');">저장</button>';
+				html += '<button class="btn btn-sm btn-info d-none" onclick="dataUpdate(this,'+res.student[i].id+');">저장</button>';
 				html += '</td>';
 				html += '</tr>';
 				$("#tb-score").find("tbody").append(html);
@@ -108,9 +108,56 @@ function dataRev(id) {
 function dataChg(obj) {
 	$(obj).addClass("d-none");
 	$(obj).next().removeClass("d-none");
+	var $tr = $(obj).parent().parent();
+	var $td = [];
+	var val = [];
+	var tag = [];
+	for(var i=1; i<=4; i++) {
+		$td[i] = $tr.find("td").eq(i);
+		val[i] = $td[i].text();
+		if(i == 1) tag[i] = '<input type="text" class="form-control" value="'+val[i]+'">';
+		else tag[i] = '<input type="number" class="form-control" value="'+val[i]+'">';
+		$td[i].html(tag[i]);
+	}
+	/*
+	var name = $tr.find("td").eq(1).text();
+	var kor = $tr.find("td").eq(2).text();
+	var eng = $tr.find("td").eq(3).text();
+	var math = $tr.find("td").eq(4).text();
+	var nameTag = '<input type="text" name="stdname" class="stdname form-control" value="'+name+'">';
+	var korTag = '<input type="text" name="kor" class="kor form-control" value="'+kor+'">';
+	var engTag = '<input type="text" name="eng" class="eng form-control" value="'+eng+'">';
+	var mathTag = '<input type="text" name="math" class="math form-control" value="'+math+'">';
+	$tr.find("td").eq(1).html(nameTag);
+	$tr.find("td").eq(2).html(korTag);
+	$tr.find("td").eq(3).html(engTag);
+	$tr.find("td").eq(4).html(mathTag);
+	*/
 }
 
-
+// 수정한 데이터 저장하기
+function dataUpdate(obj, id) {
+	var $tr = $(obj).parent().parent();
+	var val = [];
+	val[0] = id;
+	for(var i=1; i<=4; i++) val[i] = $tr.find("td").eq(i).children("input").val();
+	$.ajax({
+		type: "post",
+		url: "https://webmir.co.kr/score/score_up.php",
+		data: {
+			id: val[0],
+			stdname: val[1],
+			kor: val[2],
+			eng: val[3],
+			math: val[4]
+		},
+		dataType: "json",
+		success: function (res) {
+			console.log(res);
+			init();
+		}
+	});
+}
 
 
 
