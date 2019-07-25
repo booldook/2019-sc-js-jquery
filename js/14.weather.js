@@ -46,4 +46,7 @@ function dailyView(res) {
 	$(".main").hide();
 	$(".daily").removeClass("d-none");
 	$(".daily").find(".temp").html(res.main.temp+" ℃");
+	$(".daily").find(".desc").html(res.weather[0].description);
+	console.log("../img/icon/"+res.weather[0].icon+".png");
+	$(".daily").find(".d-icon").attr("src", "../img/icon/"+res.weather[0].icon+".png");
 }
