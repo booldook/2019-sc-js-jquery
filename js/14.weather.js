@@ -2,6 +2,7 @@
 var appid = '02efdd64bdc14b279bc91d9247db4722';
 var dailyURL = 'https://api.openweathermap.org/data/2.5/weather';
 var cityId;
+var cityName;
 var now = 0;
 
 // 초기화-도시선택
@@ -18,6 +19,7 @@ function init() {
 			}
 			$("#city").change(function(){
 				cityId = $(this).val();
+				cityName = $(this).find('option:selected').text();
 				dailyInit();
 			});
 		}
@@ -65,6 +67,7 @@ function dailyInit() {
 function dailyView(res) {
 	now = 1;
 	navInit();
+	$(".daily").find(".city-name").html(cityName);
 	$(".daily").find(".temp").html(res.main.temp+" ℃");
 	$(".daily").find(".desc").html(res.weather[0].description);
 	console.log("../img/icon/"+res.weather[0].icon+".png");
