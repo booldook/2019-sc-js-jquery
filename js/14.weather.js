@@ -32,9 +32,10 @@ function init() {
 }
 
 $(window).resize(function(){
-	bodyHei = $("body").innerHeight();
-	console.log(bodyHei);
-	$(".weekly > div").css("height", (bodyHei*0.6)+"px");
+	bodyHei = $("body").outerHeight();
+	// console.log(bodyHei);
+	$(".weekly > div").css("height", (bodyHei*0.7)+"px");
+	$(".daily").css("height", ((bodyHei*0.7) + 50) +"px");
 }).trigger("resize");
 
 
@@ -106,15 +107,16 @@ function weeklyInit() {
 // 주간 날씨정보 생성하기
 function weeklyView(res) {
 	var html = '';
+	$(".weekly > div").empty();
 	for(var i in res.list) {
 		html  = '<div class="weekly-item media border-bottom border-secondary p-3">';
-		html += '<img class="align-self-start w-100" src="../img/icon/01d.png" style="max-width: 80px;">';
+		html += '<img class="align-self-start w-100" src="../img/icon/'+res.list[i].weather[0].icon+'.png" style="max-width: 80px;">';
 		html += '<div class="media-body px-3">';
 		html += '<h4 class="py-2">';
-		html += '<span class="temp">25</span>℃ ';
-		html += '<span class="desc ml-3">Light rain</span>';
+		html += '<span class="temp">'+res.list[i].main.temp+'</span>℃ ';
+		html += '<span class="desc ml-3">'+res.list[i].weather[0].description+'</span>';
 		html += '</h4>';
-		html += '<div class="date">2019-07-26 24:00:00</div>';
+		html += '<div class="date">'+res.list[i].dt_txt+'</div>';
 		html += '</div>';
 		html += '</div>';
 		$(".weekly > div").append(html);
