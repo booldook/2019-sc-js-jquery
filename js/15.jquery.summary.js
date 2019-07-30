@@ -8,7 +8,8 @@ $(객체).next()
 $(객체).prev()
 $(객체).first()
 $(객체).last()
-$(객체).eq(n)
+$(객체).eq(n)		=> return jQuery
+$(객체).index()	=> return number(Integer)
 https://www.w3schools.com/jquery/jquery_selectors.asp
 https://www.w3schools.com/jquery/jquery_ref_selectors.asp
 https://www.w3schools.com/jquery/jquery_traversing_siblings.asp
@@ -27,9 +28,15 @@ $(객체).html('<div>가</div>')	//객체안의 기존내용을 지우고 새로
 $(객체).empty();		//객체 안을 지운다.
 $(객체).remove();		//객체를 지운다.
 */
-
+$("body").append('<div class="wrap"></div>');
 var obj = $(".wrap").append('<div>가</div>'); 	// obj => $(".wrap")
-var obj = $('<div>가</div>').appendTo('.wrap'); // obj => $("div")
-obj.click(function(){
+console.log(obj);
+var obj = $('<div>나</div>').appendTo('.wrap'); // obj => $("div")
+console.log(obj);
 
+// eq() | index() 예제
+// console.log($(".bt").eq(1));
+$(".bt").click(function(){
+	if($(this).index() == 2) alert("정답입니다.");
+	else alert("오답입니다.");
 });
