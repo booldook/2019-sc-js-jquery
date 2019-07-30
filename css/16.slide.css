@@ -1,3 +1,5 @@
+html, body {height: 5000px;}
+
 .banner {position:relative; overflow: hidden;}
 
 .slides {position:relative;}
@@ -5,3 +7,8 @@
 
 .slides2 {position:relative;}
 .slides2 > .slide {position: absolute; width: 100%; top: 0;}
+
+.slides3 {position:relative;}
+.slides3 > .slide {position: absolute; width: 100%; top: 0;}
+
+.slides4 {position:absolute; width: 100%;}
