@@ -1,8 +1,7 @@
-.banner {position:relative; border: 10px solid red;}
+.banner {position:relative; overflow: hidden;}
+
 .slides {position:relative;}
 .slides > .slide {position: absolute; width: 100%; top: 0;}
-.slides > .slide:nth-child(1) {left: 0;}
-.slides > .slide:nth-child(2) {left: 100%;}
-.slides > .slide:nth-child(3) {left: 200%;}
-.slides > .slide:nth-child(4) {left: 300%;}
-.slides > .slide:nth-child(5) {left: 400%;}
+
+.slides2 {position:relative;}
+.slides2 > .slide {position: absolute; width: 100%; top: 0;}
