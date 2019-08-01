@@ -1,0 +1,5 @@
+.pointer {cursor: pointer;}
+
+.banner .slogan {top: 20%; left: 20%; color: white;}
+.banner .title {font-size: 3rem; text-shadow: 0 0 10px rgba(0,0,0,0.5);}
+.banner .desc {font-size: 1.25rem; text-shadow: 0 0 10px rgba(0,0,0,0.5);}
