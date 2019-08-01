@@ -18,7 +18,7 @@ html, body {height: 5000px;}
 .pager-sel {width: 36px !important; border-color: #e66 !important;}
 
 .bt-arrow {position: absolute; top: 50%; transform: translateY(-50%); 
-	transition: all 0.5s; cursor: pointer;}
-.bt-arrow:hover {opacity: 0.7;}
+	transition: all 0.5s; cursor: pointer; opacity: 0.5;}
+.bt-arrow:hover {opacity: 1;}
 .bt-prev {left: 5%;}
 .bt-next {right: 5%;}

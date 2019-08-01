@@ -46,6 +46,7 @@ for(var i=0; i<5; i++) {
 
 (function(){
 	var now = 1;
+	var view = 0;
 	var speed = 500;
 	var gap = 3000;
 	var interval;
@@ -77,10 +78,18 @@ for(var i=0; i<5; i++) {
 		interval = setInterval(slideAni, gap);
 	});
 	$btPrev.click(function(){
-		
+		if(view > 0) now = view - 1;
+		else now = $slide.length - 2;
+		clearInterval(interval);
+		interval = setInterval(slideAni, gap);
+		slideAni();
 	});
 	$btNext.click(function(){
-
+		if(view < $slide.length - 2) now = view + 1;
+		else now = 0;
+		clearInterval(interval);
+		interval = setInterval(slideAni, gap);
+		slideAni();
 	});
 
 	interval = setInterval(slideAni, gap);
@@ -89,6 +98,7 @@ for(var i=0; i<5; i++) {
 		if(now == 5) $pager.eq(0).addClass("pager-sel");
 		else $pager.eq(now).addClass("pager-sel");
 		$slides.stop().animate({"left": -(now*100)+"%"}, speed, function(){
+			view = now;
 			if(now == $slide.length - 1) {
 				$slides.css({"left": 0});
 				now = 1;
