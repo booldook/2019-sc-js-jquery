@@ -1,14 +1,18 @@
 html, body {height: 5000px;}
 
-.banner {position:relative; overflow: hidden;}
+.banner {position: relative; overflow: hidden;}
 
-.slides {position:relative;}
+.slides {position: relative;}
 .slides > .slide {position: absolute; width: 100%; top: 0;}
 
-.slides2 {position:relative;}
+.slides2 {position: relative;}
 .slides2 > .slide {position: absolute; width: 100%; top: 0;}
 
-.slides3 {position:relative;}
+.slides3 {position: relative;}
 .slides3 > .slide {position: absolute; width: 100%; top: 0;}
 
-.slides4 {position:absolute; width: 100%;}
+.slides4 {position: absolute; width: 100%;}
+
+.pager {z-index: 9999; bottom: 50px;}
+.pager > li {border: 4px solid #222; width: 18px; height: 18px; border-radius: 9px; margin: 0 4px; background-color: rgba(255,255,255, 0.7); cursor: pointer; transition: width 1s;}
+.pager-sel {width: 36px !important; border-color: #e66 !important;}

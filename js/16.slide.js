@@ -48,6 +48,7 @@ for(var i=0; i<5; i++) {
 	var now = 1;
 	var speed = 500;
 	var gap = 3000;
+	var interval;
 	$(window).resize(function(){
 		$(".slides2").innerHeight($(".slides2 > .slide").eq(0).innerHeight());
 	}).trigger("resize");
@@ -55,7 +56,26 @@ for(var i=0; i<5; i++) {
 	$(".slides2 > .slide").each(function(i){
 		$(this).css({"left": (i*100)+"%"});
 	});
-	setInterval(function(){
+	$(".pager > li").eq(0).addClass("pager-sel");
+	$(".pager > li").click(function(){
+		now = $(this).index();
+		clearInterval(interval);
+		interval = setInterval(slideAni, gap);
+		slideAni();
+	});
+	$(".slides2").mouseenter(function(){
+		clearInterval(interval);
+	});
+	$(".slides2").mouseleave(function(){
+		clearInterval(interval);
+		interval = setInterval(slideAni, gap);
+	});
+
+	interval = setInterval(slideAni, gap);
+	function slideAni(){
+		$(".pager > li").removeClass("pager-sel");
+		if(now == 5) $(".pager > li").eq(0).addClass("pager-sel");
+		else $(".pager > li").eq(now).addClass("pager-sel");
 		$(".slides2").stop().animate({"left": -(now*100)+"%"}, speed, function(){
 			if(now == $(".slides2 > .slide").length - 1) {
 				$(".slides2").css({"left": 0});
@@ -63,7 +83,7 @@ for(var i=0; i<5; i++) {
 			}
 			else now++;
 		});
-	}, gap);
+	}
 })();
 
 (function(){
