@@ -1,0 +1,9 @@
+{
+	"slides": [
+		{"src": "../img/p1.png", "title": "Image1", "description": "Good Design1", "link" : "#"},
+		{"src": "../img/p2.png", "title": "Image2", "description": "Good Design2", "link" : "#"},
+		{"src": "../img/p3.png", "title": "Image3", "description": "Good Design3", "link" : "#"},
+		{"src": "../img/p4.png", "title": "Image4", "description": "Good Design4", "link" : "#"},
+		{"src": "../img/p5.png", "title": "Image5", "description": "Good Design5", "link" : "#"}
+	]
+}
