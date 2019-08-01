@@ -49,36 +49,48 @@ for(var i=0; i<5; i++) {
 	var speed = 500;
 	var gap = 3000;
 	var interval;
+	var $slides = $(".slides2");
+	$slides.append($slides.find(".slide").eq(0).clone());
+	var $slide = $slides.children(".slide");
+	var $pagers = $slides.parent().find(".pager");
+	var $pager = $pagers.children("li");
+	var $btPrev = $slides.parent().find(".bt-prev");
+	var $btNext = $slides.parent().find(".bt-next");
 	$(window).resize(function(){
-		$(".slides2").innerHeight($(".slides2 > .slide").eq(0).innerHeight());
+		$slides.innerHeight($slide.eq(0).innerHeight());
 	}).trigger("resize");
-	$(".slides2").append($(".slides2 > .slide").eq(0).clone());
-	$(".slides2 > .slide").each(function(i){
+	$slide.each(function(i){
 		$(this).css({"left": (i*100)+"%"});
 	});
-	$(".pager > li").eq(0).addClass("pager-sel");
-	$(".pager > li").click(function(){
+	$pager.eq(0).addClass("pager-sel");
+	$pager.click(function(){
 		now = $(this).index();
 		clearInterval(interval);
 		interval = setInterval(slideAni, gap);
 		slideAni();
 	});
-	$(".slides2").mouseenter(function(){
+	$slides.mouseenter(function(){
 		clearInterval(interval);
 	});
-	$(".slides2").mouseleave(function(){
+	$slides.mouseleave(function(){
 		clearInterval(interval);
 		interval = setInterval(slideAni, gap);
+	});
+	$btPrev.click(function(){
+		
+	});
+	$btNext.click(function(){
+
 	});
 
 	interval = setInterval(slideAni, gap);
 	function slideAni(){
-		$(".pager > li").removeClass("pager-sel");
-		if(now == 5) $(".pager > li").eq(0).addClass("pager-sel");
-		else $(".pager > li").eq(now).addClass("pager-sel");
-		$(".slides2").stop().animate({"left": -(now*100)+"%"}, speed, function(){
-			if(now == $(".slides2 > .slide").length - 1) {
-				$(".slides2").css({"left": 0});
+		$pager.removeClass("pager-sel");
+		if(now == 5) $pager.eq(0).addClass("pager-sel");
+		else $pager.eq(now).addClass("pager-sel");
+		$slides.stop().animate({"left": -(now*100)+"%"}, speed, function(){
+			if(now == $slide.length - 1) {
+				$slides.css({"left": 0});
 				now = 1;
 			}
 			else now++;
