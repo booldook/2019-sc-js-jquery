@@ -1,9 +1,14 @@
-var data;
-var html;
-var now = 0;
-var end;
-var prev;
-var next;
+var data;					// ajax 데이터
+var html;					
+var now = 0;			// 가운데 그림
+var end;					// 마지막 li의 index
+var prev;					// 이전 li의 index
+var next;					// 다음 li의 index
+var dir = "L";		// 움직일 방향 ("L", "R")
+var tar;					// $(".slides")가 움직일 값
+var speed = 500;
+var gap = 3000;
+
 init();
 function init() {
 	$.ajax({
@@ -32,4 +37,31 @@ function slideInit() {
 	$(".slide").eq(0).find("img").attr("src", data[prev].src);
 	$(".slide").eq(1).find("img").attr("src", data[now].src);
 	$(".slide").eq(2).find("img").attr("src", data[next].src);
+	$(".slides").css({"left":"-100%"});
 }
+
+function slideAni() {
+	if(dir == "L") tar = "-200%";
+	else tar = 0;
+	$(".slides").stop().animate({"left": tar}, speed, function(){
+		if(dir == "L") now = next;
+		else now = prev;
+		slideInit();
+	});
+}
+
+$("#btPrev").click(function(){
+	clearInterval(interval);
+	interval = setInterval(slideAni, gap);
+	dir = "L";
+	slideAni();
+});
+
+$("#btNext").click(function(){
+	clearInterval(interval);
+	interval = setInterval(slideAni, gap);
+	dir = "R";
+	slideAni();
+});
+
+interval = setInterval(slideAni, gap);

@@ -1,0 +1,5 @@
+#btPrev {top: 50%; transform: translateY(-50%); left: 20px; color: white; opacity: 0.3; transition: all 0.5s; cursor: pointer;}
+#btNext {top: 50%; transform: translateY(-50%); right: 20px; color: white; opacity: 0.3; transition: all 0.5s; cursor: pointer;}
+
+#btPrev:hover {opacity: 1;}
+#btNext:hover {opacity: 1;}
