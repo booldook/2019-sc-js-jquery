@@ -68,3 +68,11 @@ function slideAni() {
 		else now++;
 	});
 }
+
+$(".banner").mouseover(function(){
+	clearInterval(interval);	
+});
+
+$(".banner").mouseleave(function(){
+	interval = setInterval(slideAni, gap);
+});
