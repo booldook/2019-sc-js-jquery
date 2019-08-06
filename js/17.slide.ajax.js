@@ -1,3 +1,20 @@
+/*
+var $li = $(html).appendTo(".banner");
+$li.css({"left": (i*100)+"%"});
+// 주석된 두줄은 아래의 한줄과 동일하다.
+*/
+//$(html).appendTo(".banner").css({"left": (i*100)+"%"});
+//$($(".slide").eq(0).clone()).appendTo(".banner").css({"left": (data.length*100)+"%"});
+/*
+$(window).resize(function(){
+	$(".banner").outerHeight($(".slide img").eq(0).outerHeight());
+});
+$(".banner").imagesLoaded(function(){
+	$(window).trigger("resize");
+});
+*/
+
+
 // 전역변수
 var data = null;
 var interval = null;
@@ -27,23 +44,16 @@ function init() {
 // 슬라이드 생성
 function slideInit() {
 	var html;
-	$(".banner").append('<ul class="pager position-absolute w-100 d-flex justify-content-center fa-2x" style="bottom: 3%; z-index:9999;"></ul>');
 	for(var i in data) {
-		html  = '<li class="slide position-absolute w-100" style="top: 0;">';
+		html  = '<li class="slide position-relative" style="flex: 100% 0 0;">';
 		html += '<img src="'+data[i].src+'" class="w-100">';
 		html += '<ul class="slogan position-absolute">';
 		html += '<li class="title">'+data[i].title+'</li>';
 		html += '<li class="desc">'+data[i].description+'</li>';
 		html += '</ul>';
 		html += '</li>';
-		$(".banner").append(html);
+		$(".slides").append(html);
 		$(".pager").append('<li class="text-secondary pointer mx-1">●</li>');
 	}
-
-	$(window).resize(function(){
-		$(".banner").outerHeight($(".slide img").eq(0).outerHeight());
-	});
-	$(".banner").imagesLoaded(function(){
-		$(window).trigger("resize");
-	});
+	$(".slides").append($(".slide").eq(0).clone());
 }
