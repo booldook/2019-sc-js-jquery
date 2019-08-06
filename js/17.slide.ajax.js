@@ -16,12 +16,12 @@ $(".banner").imagesLoaded(function(){
 
 
 // 전역변수
-var data = null;
-var interval = null;
-var now = 1;
-var view = 0;
-var speed = 500;
-var gap = 3000;
+var data = null;			// ajax를 통해 전달될 data
+var interval = null;	// interval을 저장할 변수
+var now = 1;					// 애니메이션이 진행되어 나올 li의 index
+var view = 0;					// 애니메이션이 진행되기 전 현재의 li의 index
+var speed = 500;			// 애니메이션 속도
+var gap = 3000;				// interval 간격
 
 // 최초실행
 init();
@@ -56,4 +56,15 @@ function slideInit() {
 		$(".pager").append('<li class="text-secondary pointer mx-1">●</li>');
 	}
 	$(".slides").append($(".slide").eq(0).clone());
+	interval = setInterval(slideAni, gap);
+}
+
+function slideAni() {
+	$(".slides").stop().animate({"left": -(now*100)+"%"}, speed, function(){
+		if(now == data.length) {
+			now = 1;
+			$(this).css({"left": 0});
+		}
+		else now++;
+	});
 }
