@@ -1,0 +1,11 @@
+{
+	"slides" : [
+		{"src": "../img/cherries.jpg"},
+		{"src": "../img/croissant.jpg"},
+		{"src": "../img/popsicle.jpg"},
+		{"src": "../img/salmon.jpg"},
+		{"src": "../img/sandwich.jpg"},
+		{"src": "../img/steak.jpg"},
+		{"src": "../img/wine.jpg"}
+	]
+}

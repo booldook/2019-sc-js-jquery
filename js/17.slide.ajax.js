@@ -43,6 +43,7 @@ function init() {
 
 // 슬라이드 생성
 function slideInit() {
+	console.log("slideInit");
 	var html;
 	for(var i in data) {
 		html  = '<li class="slide position-relative" style="flex: 100% 0 0;">';
@@ -56,10 +57,18 @@ function slideInit() {
 		$(".pager").append('<li class="text-secondary pointer mx-1">●</li>');
 	}
 	$(".slides").append($(".slide").eq(0).clone());
+	$(".pager > li").eq(0).removeClass("text-secondary").addClass("text-primary");
+	$(".pager > li").click(function(){
+		clearInterval(interval);
+		interval = setInterval(slideAni, gap);
+		now = $(this).index();
+		slideAni();
+	});
 	interval = setInterval(slideAni, gap);
 }
 
 function slideAni() {
+	pagerInit();
 	$(".slides").stop().animate({"left": -(now*100)+"%"}, speed, function(){
 		if(now == data.length) {
 			now = 1;
@@ -69,10 +78,20 @@ function slideAni() {
 	});
 }
 
+function pagerInit() {
+	if(now == data.length) view = 0;
+	else view = now;
+	$(".pager > li").removeClass("text-primary").addClass("text-secondary");
+	$(".pager > li").eq(view).removeClass("text-secondary").addClass("text-primary");
+}
+
 $(".banner").mouseover(function(){
 	clearInterval(interval);	
 });
 
 $(".banner").mouseleave(function(){
+	clearInterval(interval);
 	interval = setInterval(slideAni, gap);
 });
+
+
