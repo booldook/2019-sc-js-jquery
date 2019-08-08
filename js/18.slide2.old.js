@@ -1,9 +1,7 @@
 var data;					// ajax 데이터
-var html;					
+var html;					// ajax 데이터를 가공하여 생성할 DOM을 담을 변수					
 var now = 0;			// 가운데 그림
 var end;					// 마지막 li의 index
-var prev;					// 이전 li의 index
-var next;					// 다음 li의 index
 var dir = "L";		// 움직일 방향 ("L", "R")
 var tar;					// $(".slides")가 움직일 값
 var speed = 500;
