@@ -7,7 +7,7 @@ var tar;					// $(".slides")가 움직일 값 -$(".slide").width()<=wid * 2 / 0
 var speed = 500;
 var gap = 3000;
 var interval;
-var cnt = 4;											// 화면에 보여진 $(".slide") 갯수
+var cnt = 5;											// 화면에 보여진 $(".slide") 갯수
 var slideCnt = cnt + 2;						// 실제 생성될 $(".slide") 갯수
 var wid = (100/cnt).toFixed(4);		// $(".slide")의 width (%로)
 var temp = [];										// $(".slide")에 들어갈 내용의 번호
@@ -22,7 +22,7 @@ function init() {
 			data = res.slides;
 			end = data.length - 1;
 			for(var i=0; i<slideCnt; i++) {
-				html  = '<li class="slide border border-danger" style="flex: '+wid+'% 0 0">';
+				html  = '<li class="slide p-2" style="flex: '+wid+'% 0 0">';
 				html += '<img src="" class="w-100">';
 				html += '</li>';
 				$(".slides").append(html);
@@ -50,8 +50,37 @@ function slideInit() {
 	$(".slides").css({"left": -wid+"%"});
 }
 
+function slideAni() {
+	if(dir == "L") {
+		tar = (-wid * 2)+"%";
+		if(now == end) now = 0;
+		else now++;
+	}
+	else {
+		tar = 0;
+		if(now == 0) now = end;
+		else now--;
+	}
+	$(".slides").stop().animate({"left": tar}, speed, function(){
+		slideInit();
+	});
+}
 
+$("#btPrev").click(function(){
+	clearInterval(interval);
+	interval = setInterval(slideAni, gap);
+	dir = "L";
+	slideAni();
+});
 
+$("#btNext").click(function(){
+	clearInterval(interval);
+	interval = setInterval(slideAni, gap);
+	dir = "R";
+	slideAni();
+});
+
+interval = setInterval(slideAni, gap);
 
 
 
